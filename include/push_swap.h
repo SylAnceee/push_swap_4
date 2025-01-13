@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abreuil <abreuil@42.fr>                    +#+  +:+       +#+        */
+/*   By: abreuil <abreuil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 11:16:47 by abreuil           #+#    #+#             */
-/*   Updated: 2025/01/10 18:16:53 by abreuil          ###   ########.fr       */
+/*   Updated: 2025/01/13 16:51:58 by abreuil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,6 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
-typedef struct init_vava
-{
-	int		i;
-	int		j;
-	char	**tab;
-} t_vava;
 // MAIN
 void	ft_sort(t_stack **stack_a, t_stack **stack_b);
 t_stack	*ft_find_best_elem(t_stack *stack_a, t_stack *stack_b);
