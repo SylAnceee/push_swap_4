@@ -6,7 +6,7 @@
 /*   By: abreuil <abreuil@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:31:35 by abreuil           #+#    #+#             */
-/*   Updated: 2025/01/10 16:42:04 by abreuil          ###   ########.fr       */
+/*   Updated: 2025/01/14 14:43:25 by abreuil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,11 @@ int	fill_stack(char **av, t_stack **stack_a, int i)
 	while (av[++i])
 	{
 		if (!ft_atoi(&nbr, av[i]))
-			return (write(2, "Error1\n", 6), ft_stackclear(stack_a),
+			return (write(2, "Error\n", 6), ft_stackclear(stack_a),
 				EXIT_FAILURE);
 		new = ft_stacknew(nbr);
 		if (!new || ft_is_duplicate(*stack_a, nbr))
-			return (write(2, "Error2\n", 6), ft_stackclear(stack_a),
+			return (write(2, "Error\n", 6), ft_stackclear(stack_a),
 				EXIT_FAILURE);
 		ft_stackadd_back(stack_a, new);
 	}

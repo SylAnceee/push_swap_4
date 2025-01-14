@@ -29,7 +29,7 @@ $(OBJ_PATH)%.o	:	$(SRC_PATH)%.c
 		@ $(CC) $(CFLAGS) -c $< -o $@
 
 clean	:
-	${RM} ${OBJ_PATH}
+	${RM} ${OBJ_PATH} ${DEPS}
 
 fclean	:	clean
 	${RM} ${NAME}
