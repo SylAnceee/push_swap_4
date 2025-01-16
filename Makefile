@@ -13,28 +13,28 @@ SRC		=	combo.c \
 
 SRC_PATH = ./src/
 OBJ_PATH = ./bin/
+RM		= rm -rf
 
-RM = rm -rf
+OBJ		= $(addprefix $(OBJ_PATH), $(SRC:.c=.o))
+DEPS	= $(OBJ:.o=.d)
 
-OBJ		=	$(addprefix $(OBJ_PATH), $(SRC:.c=.o))
-DEPS	=	$(OBJ:.o=.d)
+all: $(NAME)
 
-all		=	$(NAME)
-
-$(NAME)	:	$(OBJ)
+$(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $^ -o $(NAME)
 
-$(OBJ_PATH)%.o	:	$(SRC_PATH)%.c
-		mkdir -p $(dir $@)
-		@ $(CC) $(CFLAGS) -c $< -o $@
+$(OBJ_PATH)%.o: $(SRC_PATH)%.c
+	mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c $< -o $@
 
-clean	:
-	${RM} ${OBJ_PATH} ${DEPS}
+clean:
+	$(RM) $(OBJ_PATH)
 
-fclean	:	clean
-	${RM} ${NAME}
+fclean: clean
+	$(RM) $(NAME)
 
-re		:	fclean all
-.PHONY	:	all clean fclean re
+re: fclean all
+
+.PHONY: all clean fclean re
 
 -include $(DEPS)

@@ -6,7 +6,7 @@
 /*   By: abreuil <abreuil@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:31:35 by abreuil           #+#    #+#             */
-/*   Updated: 2025/01/14 14:43:25 by abreuil          ###   ########.fr       */
+/*   Updated: 2025/01/16 15:44:17 by abreuil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	fill_stack(char **av, t_stack **stack_a, int i)
 		new = ft_stacknew(nbr);
 		if (!new || ft_is_duplicate(*stack_a, nbr))
 			return (write(2, "Error\n", 6), ft_stackclear(stack_a),
-				EXIT_FAILURE);
+				free(new), EXIT_FAILURE);
 		ft_stackadd_back(stack_a, new);
 	}
 	return (EXIT_SUCCESS);
